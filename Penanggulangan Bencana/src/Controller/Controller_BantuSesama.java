@@ -39,7 +39,7 @@ public class Controller_BantuSesama implements ActionListener{
         DefaultTableModel model = new DefaultTableModel(new String[]{"Jenis Bencana", "Jam", "Lokasi", "Keterangan","Status"}, 0);
         ArrayList<Peristiwa> peristiwa = kn.getPeristiwa();
         for (Peristiwa p : peristiwa) {
-            model.addRow(new Object[]{p.getJenis_bencana(), p.getJam(), p.getLokasi(), p.getKeterangan_peristiwa()});
+            model.addRow(new Object[]{p.getJenis_bencana(), p.getJam(), p.getLokasi(), p.getKeterangan_peristiwa(),p.getStatus_peristiwa()});
         }
         bantu.setTbBantuan(model);
     }

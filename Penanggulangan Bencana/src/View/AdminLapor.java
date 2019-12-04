@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -17,7 +18,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AdminLapor extends javax.swing.JFrame {
 
-    private String id_peristiwa;
 
     /**
      * Creates new form AdminLapor
@@ -49,6 +49,7 @@ public class AdminLapor extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tfKeterangan1 = new javax.swing.JTextArea();
         btnHapus = new javax.swing.JButton();
+        tfId_peristiwa = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -182,6 +183,9 @@ public class AdminLapor extends javax.swing.JFrame {
             }
         });
 
+        tfId_peristiwa.setEditable(false);
+        tfId_peristiwa.setText("ID_PERISTIWA");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -194,23 +198,25 @@ public class AdminLapor extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tfId_peristiwa)
+                                        .addComponent(tfJenisBencana, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))
+                                    .addComponent(tfLokasi, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(28, 28, 28)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tfJenisBencana, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tfLokasi, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(tfstatusPeristiwa, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                                            .addComponent(tfJam))))))
+                                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                                        .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(21, 21, 21))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(tfJam, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tfstatusPeristiwa))
+                                    .addComponent(jScrollPane3))))
                         .addGap(32, 32, 32))))
         );
         jPanel6Layout.setVerticalGroup(
@@ -219,22 +225,28 @@ public class AdminLapor extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfJenisBencana, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfJam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tfLokasi)
-                    .addComponent(tfstatusPeristiwa))
+                    .addComponent(tfId_peristiwa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfstatusPeristiwa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfJam, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(tfJenisBencana, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfLokasi, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
 
         jPanel5.setBackground(new java.awt.Color(38, 57, 98));
@@ -371,7 +383,7 @@ public class AdminLapor extends javax.swing.JFrame {
                 .addComponent(btnBantu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(btnLogOut)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(281, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(59, 89, 153));
@@ -402,7 +414,7 @@ public class AdminLapor extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -426,16 +438,16 @@ public class AdminLapor extends javax.swing.JFrame {
 
     private void tfJenisBencanaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfJenisBencanaFocusGained
         // TODO add your handling code here:
-        if(tfJenisBencana.getText().equals("Jenis Bencana")){
-            tfJenisBencana.setText("");
-        }
+//        if(tfJenisBencana.getText().equals("Jenis Bencana")){
+//            tfJenisBencana.setText("");
+//        }
     }//GEN-LAST:event_tfJenisBencanaFocusGained
 
     private void tfJenisBencanaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfJenisBencanaFocusLost
         // TODO add your handling code here:
-        if(tfJenisBencana.getText().equals("Jenis Bencana")){
-            tfJenisBencana.setText("Jenis Bencana");
-        }
+//        if(tfJenisBencana.getText().equals("Jenis Bencana")){
+//            tfJenisBencana.setText("Jenis Bencana");
+//        }
     }//GEN-LAST:event_tfJenisBencanaFocusLost
 
     private void tfJenisBencanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfJenisBencanaActionPerformed
@@ -444,14 +456,14 @@ public class AdminLapor extends javax.swing.JFrame {
 
     private void tfJamFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfJamFocusGained
         // TODO add your handling code here:
-        if(tfJam.getText().equals("Jam")){
-            tfJam.setText("");   }
+//        if(tfJam.getText().equals("Jam")){
+//            tfJam.setText("");   }
     }//GEN-LAST:event_tfJamFocusGained
 
     private void tfJamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfJamFocusLost
         // TODO add your handling code here:
-        if(tfJam.getText().equals("")){
-            tfJam.setText("Jam");   }
+//        if(tfJam.getText().equals("")){
+//            tfJam.setText("Jam");   }
     }//GEN-LAST:event_tfJamFocusLost
 
     private void tfJamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfJamActionPerformed
@@ -460,16 +472,16 @@ public class AdminLapor extends javax.swing.JFrame {
 
     private void tfLokasiFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfLokasiFocusGained
         // TODO add your handling code here:
-        if(tfLokasi.getText().equals("Lokasi")){
-            tfLokasi.setText("");
-        }
+//        if(tfLokasi.getText().equals("Lokasi")){
+//            tfLokasi.setText("");
+//        }
     }//GEN-LAST:event_tfLokasiFocusGained
 
     private void tfLokasiFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfLokasiFocusLost
         // TODO add your handling code here:
-        if(tfLokasi.getText().equals("")){
-            tfLokasi.setText("Lokasi");
-        }
+//        if(tfLokasi.getText().equals("")){
+//            tfLokasi.setText("Lokasi");
+//        }
     }//GEN-LAST:event_tfLokasiFocusLost
 
     private void tfLokasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLokasiActionPerformed
@@ -478,30 +490,30 @@ public class AdminLapor extends javax.swing.JFrame {
 
     private void tfKeteranganFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfKeteranganFocusGained
         // TODO add your handling code here:
-        if(tfKeterangan.getText().equals("TAMBAHKAN KETERANGAN DISINI.....")){
-            tfKeterangan.setText("");
-        }
+//        if(tfKeterangan.getText().equals("TAMBAHKAN KETERANGAN DISINI.....")){
+//            tfKeterangan.setText("");
+//        }
     }//GEN-LAST:event_tfKeteranganFocusGained
 
     private void tfKeteranganFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfKeteranganFocusLost
         // TODO add your handling code here:
-        if(tfKeterangan.getText().equals("")){
-            tfKeterangan.setText("TAMBAHKAN KETERANGAN DISINI.....");
-        }
+//        if(tfKeterangan.getText().equals("")){
+//            tfKeterangan.setText("TAMBAHKAN KETERANGAN DISINI.....");
+//        }
     }//GEN-LAST:event_tfKeteranganFocusLost
 
     private void tfKeterangan1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfKeterangan1FocusGained
         // TODO add your handling code here:
-        if(tfKeterangan.getText().equals("TAMBAHKAN KETERANGAN DISINI.....")){
-            tfKeterangan.setText("");
-        }
+//        if(tfKeterangan.getText().equals("TAMBAHKAN KETERANGAN DISINI.....")){
+//            tfKeterangan.setText("");
+//        }
     }//GEN-LAST:event_tfKeterangan1FocusGained
 
     private void tfKeterangan1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfKeterangan1FocusLost
         // TODO add your handling code here:
-        if(tfKeterangan.getText().equals("TAMBAHKAN KETERANGAN DISINI.....")){
-            tfKeterangan.setText("");
-        }
+//        if(tfKeterangan.getText().equals("TAMBAHKAN KETERANGAN DISINI.....")){
+//            tfKeterangan.setText("");
+//        }
     }//GEN-LAST:event_tfKeterangan1FocusLost
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
@@ -514,9 +526,7 @@ public class AdminLapor extends javax.swing.JFrame {
     public void setUsername(String Username) {
         this.Username.setText(Username);
     }
-    public JButton getbtnEditStatus() {
-        return btnUpdate;
-    } 
+
         public JButton getbtnHome() {
         return btnHome;
     }
@@ -557,6 +567,13 @@ public class AdminLapor extends javax.swing.JFrame {
     public void setTfJam(String tfJam) {
         this.tfJam.setText(tfJam);
     }
+    public String getTfId_peristiwa() {
+        return tfId_peristiwa.getText();
+    }
+
+    public void setTfId_peristiwa(String tfId_peristiwa) {
+        this.tfId_peristiwa.setText(tfId_peristiwa);
+    }    
     
     public String getTfLokasi() {
         return tfLokasi.getText();
@@ -566,14 +583,12 @@ public class AdminLapor extends javax.swing.JFrame {
         this.tfLokasi.setText(tfLokasi);
     }
     
-    public String getTfKeterangan() {
-        return tfKeterangan.getText();
+    public String getTfKeterangan1() {
+        return tfKeterangan1.getText();
     }
-    public String getId_Peristiwa(){
-        return id_peristiwa;
-    }
-    public void setTfKeterangan(String tfKeterangan) {
-        this.tfKeterangan.setText(tfKeterangan);
+
+    public void setTfKeterangan1(String tfKeterangan1) {
+        this.tfKeterangan1.setText(tfKeterangan1);
     }
         public String getTfstatusPeristiwa() {
         return tfstatusPeristiwa.getText();
@@ -601,41 +616,11 @@ public class AdminLapor extends javax.swing.JFrame {
         setTfLokasi("");
         setTfJam("");
         setTfstatusPeristiwa("");
-        setTfKeterangan("");
+        setTfKeterangan1("");
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminLapor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminLapor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminLapor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminLapor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminLapor().setVisible(true);
-            }
-        });
+    
+    public void addMouseAdapter(MouseAdapter x){
+        tbBantuan.addMouseListener(x);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -661,6 +646,7 @@ public class AdminLapor extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable tbBantuan;
+    private javax.swing.JTextField tfId_peristiwa;
     private javax.swing.JTextField tfJam;
     private javax.swing.JTextField tfJenisBencana;
     private javax.swing.JTextArea tfKeterangan;
@@ -668,4 +654,5 @@ public class AdminLapor extends javax.swing.JFrame {
     private javax.swing.JTextField tfLokasi;
     private javax.swing.JTextField tfstatusPeristiwa;
     // End of variables declaration//GEN-END:variables
+
 }
